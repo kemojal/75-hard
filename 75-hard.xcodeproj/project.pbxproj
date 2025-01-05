@@ -29,9 +29,23 @@
 		7B5724102D2981E8009209EC /* 75-hardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "75-hardUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		7B5724462D298BE1009209EC /* Exceptions for "75-hard" folder in "75-hard" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"-5-hard-Info.plist",
+				Views/Untitled.swift,
+			);
+			target = 7B5723F52D2981E7009209EC /* 75-hard */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		7B5723F82D2981E7009209EC /* 75-hard */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7B5724462D298BE1009209EC /* Exceptions for "75-hard" folder in "75-hard" target */,
+			);
 			path = "75-hard";
 			sourceTree = "<group>";
 		};
@@ -399,6 +413,10 @@
 				DEVELOPMENT_TEAM = 2J8L6HN533;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-5-hard-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "75 Hard Challenge needs camera access to take your daily progress photos";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "75 Hard Challenge needs permission to save your progress photos to your library";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "75 Hard Challenge needs access to your photo library to save and select progress photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,6 +446,10 @@
 				DEVELOPMENT_TEAM = 2J8L6HN533;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-5-hard-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "75 Hard Challenge needs camera access to take your daily progress photos";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "75 Hard Challenge needs permission to save your progress photos to your library";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "75 Hard Challenge needs access to your photo library to save and select progress photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

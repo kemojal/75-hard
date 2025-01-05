@@ -13,6 +13,7 @@ struct Task: Identifiable, Codable {
     var isCompleted: Bool
     var type: TaskType
     var notes: String?
+    var photoData: Data? // Add this for storing photos
     
     enum TaskType: String, Codable {
         case workout1 = "First Workout"
