@@ -8,6 +8,7 @@ import SwiftUI
 
 struct TodayView: View {
     @StateObject private var viewModel = ChallengeViewModel()
+    @State private var showingJournal = false
     
     var body: some View {
         NavigationView {
@@ -45,13 +46,43 @@ struct TodayView: View {
                         }
                     }
                     
-                    // Journal Section
-                    JournalCard()
+                    // Journal Button
+                    Button(action: {
+                        showingJournal = true
+                    }) {
+                        HStack {
+                            Image(systemName: "book.fill")
+                                .font(.system(size: 20))
+                            Text("Add Note")
+                                .font(.headline)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 14, weight: .semibold))
+                        }
+                        .padding()
+                        .background(Color(.secondarySystemBackground))
+                        .cornerRadius(12)
+                        .foregroundColor(.primary)
+                    }
+                    .padding(.horizontal)
                 }
-                .padding(.vertical)
             }
             .background(Color(UIColor.systemGroupedBackground))
             .navigationTitle("Day \(calculateDay())")
+            .sheet(isPresented: $showingJournal) {
+                NavigationView {
+                    JournalCard()
+                        .navigationTitle("Journal Entry")
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button("Done") {
+                                    showingJournal = false
+                                }
+                            }
+                        }
+                }
+            }
         }
     }
     
@@ -137,49 +168,6 @@ struct StatItem: View {
     }
 }
 
-struct JournalCard: View {
-    @State private var journalText = ""
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Daily Journal")
-                .font(.headline)
-            
-            TextEditor(text: $journalText)
-                .frame(height: 100)
-                .padding(12)
-                .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(Color(UIColor.systemBackground))
-                        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
-                )
-                .overlay(
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(Color.gray.opacity(0.2))
-                )
-            
-            Button(action: {
-                // Save journal entry
-            }) {
-                Text("Save Entry")
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 12)
-                    .background(Color.blue)
-                    .cornerRadius(12)
-            }
-        }
-        .padding(20)
-        .background(
-            RoundedRectangle(cornerRadius: 24)
-                .fill(Color(UIColor.systemBackground))
-                .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
-        )
-        .padding(.horizontal, 16)
-    }
-}
-
 struct TaskDetailView: View {
     let task: Task
     @Environment(\.presentationMode) var presentationMode
@@ -199,9 +187,6 @@ struct TaskDetailView: View {
     }
 }
 
-
 #Preview {
     TodayView()
 }
-
-
