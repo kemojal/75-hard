@@ -18,11 +18,7 @@ struct ReadingTipsView: View {
                 "Read in a quiet, comfortable environment."
             ],
             actionButtonTitle: "Get Started",
-            action: {
-                            // Navigate to a detailed nutrition guide or external resource
-                            print("Reding tips...")
-                            // Example: Open a detailed guide or link to an external website
-                        }
+            destination: AnyView(MealPlansListView())
         )
     }
 }

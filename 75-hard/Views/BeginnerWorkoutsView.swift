@@ -18,11 +18,7 @@ struct BeginnerWorkoutsView: View {
                 "Start with 2-3 sessions per week and gradually increase."
             ],
             actionButtonTitle: "Start Workout",
-            action: {
-                           // Navigate to a workout video or start a workout session
-                           print("Starting Beginner Workout...")
-                           // Example: Open a workout video or start a timer
-                       }
+            destination: AnyView(WorkoutVideoView(videoID: "d3LPrhI0v-w"))
         )
     }
     

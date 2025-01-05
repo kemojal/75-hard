@@ -6,13 +6,13 @@
 //
 import SwiftUI
 
-struct ResourceDetailView: View {
+struct ResourceDetailView<Destination: View>: View {
     let title: String
     let icon: String
     let description: String
     let tips: [String]
     let actionButtonTitle: String
-    let action: () -> Void
+    let destination: Destination
 
     var body: some View {
         ScrollView {
@@ -60,7 +60,7 @@ struct ResourceDetailView: View {
                 }
 
                 // Action Button
-                Button(action: action) {
+                NavigationLink(destination: destination){
                     Text(actionButtonTitle)
                         .font(.system(size: 18, weight: .semibold, design: .rounded))
                         .foregroundColor(.white)
@@ -90,10 +90,6 @@ struct ResourceDetailView: View {
                            "Start with 2-3 sessions per week and gradually increase."
                        ],
                        actionButtonTitle: "Start Workout",
-        action: {
-                       // Navigate to a workout video or start a workout session
-                       print("Starting Beginner Workout...")
-                       // Example: Open a workout video or start a timer
-                   }
+        destination: AnyView(MealPlansListView())
     )
 }

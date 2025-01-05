@@ -19,11 +19,7 @@ struct OutdoorActivitiesView: View {
                 "Stay hydrated and wear appropriate gear."
             ],
             actionButtonTitle: "Explore Activities",
-            action: {
-                            // Navigate to a list of outdoor activities or suggest nearby locations
-                            print("Exploring Outdoor Activities...")
-                            // Example: Open a map with nearby parks or trails
-                        }
+            destination: AnyView(WorkoutVideoView(videoID: "d3LPrhI0v-w"))
         )
     }
 }

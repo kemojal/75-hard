@@ -18,11 +18,7 @@ struct MealPlansView: View {
                 "Stay consistent with your meal schedule."
             ],
             actionButtonTitle: "View Meal Plans",
-            action: {
-                            // Navigate to a list of meal plans or recipes
-                            print("Viewing Meal Plans...")
-                            // Example: Open a list of meal plans or recipes
-                        }
+            destination: AnyView(MealPlansListView())
         )
     }
 }

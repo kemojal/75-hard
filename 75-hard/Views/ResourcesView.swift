@@ -52,9 +52,6 @@ struct ResourcesView: View {
             }
             .navigationTitle("Resources")
             .background(Color(.systemGroupedBackground).edgesIgnoringSafeArea(.all))
-            .sheet(item: $selectedItem) { item in
-                item.detailView
-            }
         }
     }
 }
@@ -86,25 +83,24 @@ struct ResourceCard: View {
 
             // Items List
             ForEach(items) { item in
-                HStack {
-                    Text(item.title)
-                        .font(.system(size: 16, weight: .medium, design: .rounded))
-                        .foregroundColor(.primary)
-                        .padding(.vertical, 12)
-                        .padding(.horizontal, 16)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(10)
-                        .shadow(color: Color.black.opacity(0.1), radius: 3, x: 0, y: 2)
+                NavigationLink(destination: item.detailView) {
+                    HStack {
+                        Text(item.title)
+                            .font(.system(size: 16, weight: .medium, design: .rounded))
+                            .foregroundColor(.primary)
+                            .padding(.vertical, 12)
+                            .padding(.horizontal, 16)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(Color(.secondarySystemBackground))
+                            .cornerRadius(10)
+                            .shadow(color: Color.black.opacity(0.1), radius: 3, x: 0, y: 2)
 
-                    Image(systemName: "chevron.right")
-                        .font(.system(size: 14, weight: .semibold))
-                        .foregroundColor(.secondary)
+                        Image(systemName: "chevron.right")
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundColor(.secondary)
+                    }
                 }
                 .padding(.vertical, 4)
-                .onTapGesture {
-                    selectedItem = item // Set the selected item to present modally
-                }
             }
         }
         .padding()
@@ -114,7 +110,6 @@ struct ResourceCard: View {
         .animation(.easeInOut(duration: 0.3), value: items)
     }
 }
-
 
 #Preview {
     ResourcesView()

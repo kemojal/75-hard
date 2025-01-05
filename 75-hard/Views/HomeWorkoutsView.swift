@@ -18,11 +18,7 @@ struct HomeWorkoutsView: View {
                 "Track your progress to stay motivated."
             ],
             actionButtonTitle: "Start Home Workout",
-            action: {
-                           // Navigate to a workout video or start a workout session
-                           print("Starting Beginner home Workout...")
-                           // Example: Open a workout video or start a timer
-                       }
+            destination: AnyView(WorkoutVideoView(videoID: "d3LPrhI0v-w"))
         )
     }
 }
