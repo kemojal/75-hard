@@ -16,7 +16,7 @@ struct CalendarView: View {
         VStack(alignment: .leading, spacing: 20) {
             // Title
             Text("75 Hard Challenge Progress")
-                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                .font(.system(size: 24, weight: .bold, design: .rounded))
                 .foregroundColor(.primary)
                 .padding(.horizontal, 20)
 
@@ -39,16 +39,16 @@ struct CalendarView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         Text("Day \(selectedDay + 1)")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .font(.system(size: 20, weight: .bold, design: .rounded))
                             .foregroundColor(.primary)
                         Spacer()
                         Image(systemName: days[selectedDay] ? "checkmark.circle.fill" : "xmark.circle.fill")
                             .foregroundColor(days[selectedDay] ? .green : .red)
-                            .font(.system(size: 20))
+                            .font(.system(size: 24))
                     }
 
                     Text(days[selectedDay] ? "You crushed it! Keep going!" : "You missed this day. Reflect and restart.")
-                        .font(.system(size: 14, weight: .medium, design: .rounded))
+                        .font(.system(size: 16, weight: .medium, design: .rounded))
                         .foregroundColor(.secondary)
 
                     if !days[selectedDay] {
@@ -56,12 +56,12 @@ struct CalendarView: View {
                             // Action to restart the challenge
                         }) {
                             Text("Restart Challenge")
-                                .font(.system(size: 14, weight: .semibold, design: .rounded))
+                                .font(.system(size: 16, weight: .semibold, design: .rounded))
                                 .foregroundColor(.white)
-                                .padding(.vertical, 8)
-                                .padding(.horizontal, 16)
+                                .padding(.vertical, 10)
+                                .padding(.horizontal, 20)
                                 .background(Color.blue)
-                                .cornerRadius(10)
+                                .cornerRadius(12)
                         }
                     }
                 }
@@ -93,7 +93,7 @@ struct DayView: View {
         ZStack {
             Circle()
                 .fill(isCompleted ? LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .topLeading, endPoint: .bottomTrailing) : LinearGradient(gradient: Gradient(colors: [Color.gray.opacity(0.3), Color.gray.opacity(0.5)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                .frame(width: 40, height: 40)
+                .frame(width: 50, height: 50)
                 .overlay(
                     Circle()
                         .stroke(isSelected ? Color.blue : Color.clear, lineWidth: 2)
@@ -103,7 +103,7 @@ struct DayView: View {
                 .animation(.spring(response: 0.3, dampingFraction: 0.5, blendDuration: 0), value: isSelected)
 
             Text("\(day)")
-                .font(.system(size: 14, weight: .medium, design: .rounded))
+                .font(.system(size: 16, weight: .medium, design: .rounded))
                 .foregroundColor(isCompleted ? .white : .primary)
         }
     }

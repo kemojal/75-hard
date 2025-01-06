@@ -29,22 +29,9 @@
 		7B5724102D2981E8009209EC /* 75-hardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "75-hardUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		7B5724752D2A3090009209EC /* Exceptions for "75-hard" folder in "75-hard" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Views/Untitled.swift,
-			);
-			target = 7B5723F52D2981E7009209EC /* 75-hard */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		7B5723F82D2981E7009209EC /* 75-hard */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				7B5724752D2A3090009209EC /* Exceptions for "75-hard" folder in "75-hard" target */,
-			);
 			path = "75-hard";
 			sourceTree = "<group>";
 		};

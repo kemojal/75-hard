@@ -5,6 +5,7 @@
 //  Created by Kemo Jallow on 2025/1/4.
 //
 import SwiftUI
+
 struct ProfileView: View {
     @State private var notificationsEnabled: Bool = true
     @State private var darkModeEnabled: Bool = false
@@ -14,33 +15,42 @@ struct ProfileView: View {
         NavigationView {
             List {
                 // User Info Section
-                Section(header: Text("User Info").font(.headline)) {
+                Section(header: Text("User Info").font(.headline).foregroundColor(.primary).padding(.vertical, 10)) {
                     HStack {
-                        if let image = profilePicture {
-                            Image(uiImage: image)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(25)
-                        } else {
-                            Image(systemName: "person.fill")
-                                .font(.largeTitle)
-                                .foregroundColor(.primaryColor)
-                                .frame(width: 50, height: 50)
-                                .background(Color.secondaryColor)
-                                .cornerRadius(25)
+                        Button(action: {
+                            // Action to change profile picture
+                        }) {
+                            if let image = profilePicture {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 70, height: 70)
+                                    .cornerRadius(35)
+                                    .shadow(radius: 5)
+                            } else {
+                                Image(systemName: "person.fill")
+                                    .font(.system(size: 40))
+                                    .foregroundColor(.white)
+                                    .frame(width: 70, height: 70)
+                                    .background(Color.gray.opacity(0.5))
+                                    .cornerRadius(35)
+                                    .shadow(radius: 5)
+                            }
                         }
                         VStack(alignment: .leading) {
                             Text("Name: John Doe")
-                                .font(.subheadline)
+                                .font(.title2)
+                                .fontWeight(.bold)
                             Text("Start Date: January 1, 2024")
                                 .font(.subheadline)
+                                .foregroundColor(.secondary)
                         }
                     }
                     .padding(.horizontal, 10)
 
                     HStack {
                         Image(systemName: "calendar")
-                            .foregroundColor(.primaryColor)
+                            .foregroundColor(.blue)
                             .font(.system(size: 20))
                         Text("Current Day: 35")
                             .font(.subheadline)
@@ -49,10 +59,10 @@ struct ProfileView: View {
                 }
 
                 // Achievements Section
-                Section(header: Text("Achievements").font(.headline)) {
+                Section(header: Text("Achievements").font(.headline).foregroundColor(.primary).padding(.vertical, 10)) {
                     HStack {
                         Image(systemName: "trophy.fill")
-                            .foregroundColor(.primaryColor)
+                            .foregroundColor(.yellow)
                             .font(.system(size: 20))
                         Text("Completed 30 Days")
                             .font(.subheadline)
@@ -61,11 +71,11 @@ struct ProfileView: View {
                 }
 
                 // Settings Section
-                Section(header: Text("Settings").font(.headline)) {
+                Section(header: Text("Settings").font(.headline).foregroundColor(.primary).padding(.vertical, 10)) {
                     Toggle("Notifications", isOn: $notificationsEnabled)
-                        .toggleStyle(SwitchToggleStyle(tint: .primaryColor))
+                        .toggleStyle(SwitchToggleStyle(tint: .blue))
                     Toggle("Dark Mode", isOn: $darkModeEnabled)
-                        .toggleStyle(SwitchToggleStyle(tint: .primaryColor))
+                        .toggleStyle(SwitchToggleStyle(tint: .blue))
                 }
                 .listRowBackground(Color(.systemBackground))
             }
@@ -78,15 +88,13 @@ struct ProfileView: View {
                         // Edit profile action
                     }) {
                         Image(systemName: "pencil")
-                            .foregroundColor(.primaryColor)
+                            .foregroundColor(.blue)
                     }
                 }
             }
         }
     }
 }
-
-
 
 #Preview {
     ProfileView()

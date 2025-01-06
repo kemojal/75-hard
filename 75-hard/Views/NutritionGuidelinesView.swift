@@ -87,14 +87,6 @@ struct NutritionGuideView: View {
     }
 }
 
-// MARK: - Previews
 
-//struct NutritionGuidelinesView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavigationView {
-//            NutritionGuidelinesView()
-//        }
-//    }
-//}
 #Preview {
     NutritionGuidelinesView() }

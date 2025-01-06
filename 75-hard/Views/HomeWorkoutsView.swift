@@ -23,3 +23,7 @@ struct HomeWorkoutsView: View {
     }
 }
 
+#Preview {
+    HomeWorkoutsView()
+}
+
